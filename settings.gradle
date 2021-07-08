@@ -1,0 +1,9 @@
+/*
+ * Copyright (c) 2021. Desarrollo de Soluciones Móviles.
+ * Departamento de Ingeniería de Sistemas y Computación.
+ * Facultad de Ingeniería y Geología.
+ * Universidad Católica del Norte.
+ *
+ */
+
+rootProject.name = 'newsapi'
