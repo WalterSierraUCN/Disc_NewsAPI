@@ -8,13 +8,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.ZonedDateTime;
 
-@Builder // The builder pattern
+ @Builder // The builder pattern
 @Getter // All the fields has getter
 @NoArgsConstructor // Add empty constructor
 @Entity // The JPÄ
@@ -37,7 +34,8 @@ public final class News {
     /**
      * The Source
      */
-    private String source;
+    @Embedded
+    private Source source;
     /**
      * The Author
      */
@@ -78,7 +76,16 @@ public final class News {
      * @param publishedAt
      */
 
-    public News(final Long id, final String title, final String source, final String author, final String url, final String ulrImage, final String description, final String content, final ZonedDateTime publishedAt) {
+    public News(
+            final Long id,
+            final String title,
+            final Source source,
+            final String author,
+            final String url,
+            final String ulrImage,
+            final String description,
+            final String content,
+            final ZonedDateTime publishedAt) {
         // FIXME: add the hash ( title + source + author)
 
 
@@ -89,11 +96,11 @@ public final class News {
 
 
         // Source validation
-        if(source==null){
+        if(source.getName()==null){
             throw new IllegalArgumentException("Source was null");
         }
 
-        if( source.length() <= 2){
+        if( source.getName().length() <= 2){
             throw new IllegalArgumentException("Source size was <= 2 [" + source +"]");
         }
         this.source = source;

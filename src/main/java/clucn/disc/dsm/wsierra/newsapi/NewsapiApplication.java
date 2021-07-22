@@ -9,6 +9,7 @@
 package clucn.disc.dsm.wsierra.newsapi;
 
 import clucn.disc.dsm.wsierra.newsapi.model.News;
+import clucn.disc.dsm.wsierra.newsapi.model.Source;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -51,21 +52,21 @@ public class NewsapiApplication {
             newsRepository.save(News.builder()
                     .title("Uff")
                     .description(" Ulala")
-                    .content(" Media volá")
-                    .author(" You")
+                    .content(" Esto es una prueba de contenido")
+                    .author(" Author test")
                     .publishedAt(ZonedDateTime.now())
-                    .source("UCN")
+                    .source(new Source("Universidad antofagasta"))
                     .url("https://www.soychile.cl/Santiago/Sociedad/2021/07/08/713356/convencion-presos-del-estallido.aspx")
                     .ulrImage("https://img.soy-chile.cl/Fotos/2021/07/08/file_20210708091834.jpg")
                     .build()
             );
             newsRepository.save(News.builder()
                     .title("Ufa")
-                    .description(" dam")
-                    .content(" k cuatico")
-                    .author(" usted")
+                    .description(" descripcion test")
+                    .content(" contenido de prueba")
+                    .author(" test de autor")
                     .publishedAt(ZonedDateTime.now())
-                    .source("UCN")
+                    .source(new Source("Universidad catolica del Norte"))
                     .url("https://www.soychile.cl/Santiago/Sociedad/2021/07/08/713415/convencion-presos-del-estallido-zuniga.aspx")
                     .ulrImage("https://img.soy-chile.cl/Fotos/2021/07/08/file_20210708120310.jpg")
                     .build()
