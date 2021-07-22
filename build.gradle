@@ -41,11 +41,13 @@ dependencies {
 	// The dialect.
 	runtimeOnly 'com.zsoltfabok:sqlite-dialect:1.0'
 
-
-
 	// Lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// Slugify
+	implementation 'com.github.slugify:slugify:2.5'
+
 }
 
 test {
